@@ -13,22 +13,22 @@ public class Task1 {
         item9 = new MyItem(9);
         item10 = new MyItem(10);
 
-        item1.nextItem = item2;
-        item2.nextItem = item3;
-        item3.nextItem = item4;
-        item4.nextItem = item5;
-        item5.nextItem = item6;
-        item6.nextItem = item7;
-        item7.nextItem = item8;
-        item8.nextItem = item9;
-        item9.nextItem = item10;
-
+//        use setter to set nextItem values
+        item1.setnextItem(item2);
+        item2.setnextItem(item3);
+        item3.setnextItem(item4);
+        item4.setnextItem(item5);
+        item5.setnextItem(item6);
+        item6.setnextItem(item7);
+        item7.setnextItem(item8);
+        item8.setnextItem(item9);
+        item9.setnextItem(item10);
     }
 
     void printValues(){
         currentItem = item1;
         for (int i = 0; i < 10 ; i++) {
-            System.out.print(currentItem.value + " ");
+            System.out.print(currentItem.getValue() + " ");
             currentItem = currentItem.nextItem;
         }
         System.out.println();
@@ -40,7 +40,7 @@ public class Task1 {
             currentItem = item1;
             for (int i = 1; i <= 10; i++) {
                 if (i == j) {
-                    System.out.print(currentItem.value + " ");
+                    System.out.print(currentItem.getValue() + " ");
                 } else
                     currentItem = currentItem.nextItem;
             }
