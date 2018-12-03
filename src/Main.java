@@ -8,6 +8,7 @@ public class Main {
     static void init(){
         Task1 task1 = new Task1();
         task1.printValues();
-        task1.printValuesRevers();
+        task1.revers();
+        task1.printRevers();
     }
 }

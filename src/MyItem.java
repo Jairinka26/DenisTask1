@@ -1,6 +1,7 @@
 public class MyItem {
     int value;
     MyItem nextItem;
+    boolean hasNext;
 
     MyItem (int a){
         value = a;
@@ -13,5 +14,16 @@ public class MyItem {
 
     int getValue (){
         return value;
+    }
+
+    MyItem getNextItem (){
+        return nextItem;
+    }
+
+    boolean hasNext(){
+        if (nextItem != null)
+            return true;
+        else
+            return false;
     }
 }

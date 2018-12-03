@@ -1,3 +1,6 @@
+//изменить порядок следования элементовт.е. сейчас такitem1 -> item2 -> ... -> itemNа должно стать вот так:
+//        itemN -> item N-1 -> .... -> item1это все должно быть сделано за 1 проход
+
 public class Task1 {
     MyItem item1, item2, item3, item4, item5, item6,item7, item8, item9, item10, currentItem;
 
@@ -27,24 +30,49 @@ public class Task1 {
 
     void printValues(){
         currentItem = item1;
-        for (int i = 0; i < 10 ; i++) {
-            System.out.print(currentItem.getValue() + " ");
-            currentItem = currentItem.nextItem;
-        }
+        boolean pr = true;
+
+        do {
+            System.out.print(currentItem.getValue()+" ");
+            if (currentItem.hasNext()) {
+                currentItem = currentItem.getNextItem();
+            }
+            else
+                pr = false;
+        } while (pr == true);
+
         System.out.println();
     }
 
-    void printValuesRevers (){
-        int j=10;
+    void revers (){
+        currentItem = item1;
+        MyItem temp = null;
+        MyItem nextTemp;
+
+        while (currentItem.hasNext())
+        {
+            nextTemp = currentItem.getNextItem();
+            currentItem.setnextItem(temp);
+            temp = currentItem;
+            currentItem =nextTemp;
+        }
+        currentItem.setnextItem(temp);
+
+    }
+
+    void printRevers(){
+        currentItem = item10;
+        boolean pr = true;
+
         do {
-            currentItem = item1;
-            for (int i = 1; i <= 10; i++) {
-                if (i == j) {
-                    System.out.print(currentItem.getValue() + " ");
-                } else
-                    currentItem = currentItem.nextItem;
+            System.out.print(currentItem.getValue()+" ");
+            if (currentItem.hasNext()) {
+                currentItem = currentItem.getNextItem();
             }
-            j--;
-        }while (j!=0);
+            else
+                pr = false;
+        } while (pr == true);
+
+        System.out.println();
     }
 }
